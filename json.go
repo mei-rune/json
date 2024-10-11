@@ -1,11 +1,11 @@
 package json
 
 import (
-	// "encoding/json"
+	"encoding/json"
 	"bytes"
 	"io"
 
-	json "github.com/goccy/go-json"
+	// json "github.com/goccy/go-json"
 )
 
 type Number = json.Number
