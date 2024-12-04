@@ -18,6 +18,18 @@ func Unmarshal(data []byte, v interface{}) error {
 	return json.Unmarshal(data, v)
 }
 
+func UnmarshalWithJsonNumber(bs []byte, value interface{}) error {
+	// return json.UnmarshalWithOption(bs, value, json.DecodeOptionFunc(func(opts *json.DecodeOption) {
+	// 	opts.UseNumber = true
+	// }))
+
+	decoder := json.NewDecoder(bytes.NewReader(bs))
+	decoder.UseNumber()
+	return decoder.Decode(value)
+	// return json.Marshal(bs, value)
+}
+
+
 type Marshaler = json.Marshaler
 type UnsupportedTypeError = json.UnsupportedTypeError
 type UnsupportedValueError = json.UnsupportedValueError

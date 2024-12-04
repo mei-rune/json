@@ -18,14 +18,3 @@ func UnmarshalV2WithNumber(in io.Reader, value interface{}) error {
 func UnmarshalBytesV2WithNumber(bs []byte, value interface{}) error {
 	return UnmarshalWithJsonNumber(bs, &value)
 }
-
-func UnmarshalWithJsonNumber(bs []byte, value interface{}) error {
-	// return json.UnmarshalWithOption(bs, value, json.DecodeOptionFunc(func(opts *json.DecodeOption) {
-	// 	opts.UseNumber = true
-	// }))
-
-	decoder := json.NewDecoder(bytes.NewReader(bs))
-	decoder.UseNumber()
-	return decoder.Decode(value)
-	// return json.Marshal(bs, value)
-}

@@ -17,7 +17,3 @@ func UnmarshalV2WithNumber(in io.Reader, value interface{}) error {
 func UnmarshalBytesV2WithNumber(bs []byte, value interface{}) error {
 	return jsonv2.Unmarshal(bs, &value, jsonv2.StringifyNumbers(true))
 }
-
-func UnmarshalWithJsonNumber(bs []byte, value interface{}) error {
-	return jsonv2.Unmarshal(bs, &value, jsonv2.StringifyNumbers(true))
-}
